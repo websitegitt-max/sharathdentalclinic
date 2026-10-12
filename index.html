@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dentel clinic | Dr. krishna | Bengaluru</title>
-  <meta name="description" content="Dentel clinic led by Dr. krishna in Hegganahalli, Bengaluru. Advanced dental implants, painless root canals, and teeth whitening." />
+  <meta name="description" content="Dentel clinic led by Dr. krishna in Hegganahalli, Bengaluru." />
 
-  <!-- Tailwind CSS CDN -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -27,10 +27,10 @@
     }
   </script>
 
-  <!-- React 18 & Babel in-browser engine -->
-  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- React 18 & Babel Standalone CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,7 +61,6 @@
       doctorBio: "Dedicated to gentle, ethical, and precision dental healthcare. Specializing in single-sitting microscopic root canals, computer-guided implant restorations, painless ultrasonic scaling, and smile design."
     };
 
-    // Full-Screen Landscape Slideshow Images
     const HERO_SLIDES = [
       {
         id: 1,
@@ -99,7 +98,6 @@
       { days: "Sunday", hours: "9:00 AM – 9:00 PM", status: "Consultations & Urgent Dental Care" }
     ];
 
-    // 10 Distinct Professional Dental Images (No text on photos)
     const GALLERY_IMAGES = [
       { id: 1, title: "Microscopic Ultrasonic Scaling", img: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1000&q=80" },
       { id: 2, title: "Precision Endodontic Canal Therapy", img: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1000&q=80" },
@@ -155,7 +153,6 @@
       const [lightbox, setLightbox] = useState(null);
       const [currentSlide, setCurrentSlide] = useState(0);
 
-      // Automatic Slideshow Timer (Changes every 5 seconds)
       useEffect(() => {
         const timer = setInterval(() => {
           setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
@@ -166,7 +163,6 @@
       const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
       const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
 
-      // Appointment form state
       const [appointmentForm, setAppointmentForm] = useState({
         name: "",
         phone: "",
@@ -203,7 +199,7 @@
       return (
         <div className="min-h-screen bg-[#FDFCFB] text-slate-800">
           
-          {/* 1. TOP CLINICAL ANNOUNCEMENT BAR (From Screenshot 1) */}
+          {/* Top Bar */}
           <aside className="bg-slate-900 text-slate-300 text-xs py-2.5 px-4 flex justify-between items-center flex-wrap gap-2 border-b border-slate-800">
             <div className="flex gap-4 items-center flex-wrap">
               <span className="text-emerald-400 font-semibold flex items-center gap-1.5">
@@ -222,11 +218,10 @@
             </div>
           </aside>
 
-          {/* 2. STICKY HEADER & NAVBAR (From Screenshot 1) */}
+          {/* Navigation */}
           <header className="sticky top-0 z-40 border-b border-teal-100 bg-white/95 backdrop-blur-md shadow-xs">
             <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
               
-              {/* Logo + Clinic Title */}
               <a href="#home" className="flex items-center gap-3">
                 <div className="grid h-11 w-11 place-items-center rounded-2xl bg-teal-600 text-white font-serif font-black text-2xl shadow-md">
                   +
@@ -237,7 +232,6 @@
                 </div>
               </a>
 
-              {/* Navigation Links */}
               <nav className="hidden items-center gap-7 lg:flex text-sm font-semibold text-slate-600">
                 <a href="#home" className="hover:text-teal-700 transition">Home</a>
                 <a href="#treatments" className="hover:text-teal-700 transition">Treatments</a>
@@ -247,7 +241,6 @@
                 <a href="#doctor" className="hover:text-teal-700 transition">Doctor Profile</a>
               </nav>
 
-              {/* Book Visit Pill Button */}
               <div className="flex items-center gap-3">
                 <a
                   href="#appointment"
@@ -279,10 +272,9 @@
           </header>
 
           <main>
-            {/* 3. FULL-BLEED LANDSCAPE HERO SLIDER (COVERS WHOLE SCREEN) */}
+            {/* Full-Bleed Landscape Slider Hero */}
             <section id="home" className="relative w-full min-h-[85vh] sm:min-h-[90vh] flex items-center overflow-hidden bg-slate-950">
               
-              {/* Landscape Background Slides */}
               {HERO_SLIDES.map((slide, idx) => (
                 <div
                   key={slide.id}
@@ -296,12 +288,10 @@
                     alt={slide.badge}
                     className="w-full h-full object-cover object-center"
                   />
-                  {/* Subtle dark gradient overlay to ensure perfect text contrast */}
                   <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/75 to-slate-950/40"></div>
                 </div>
               ))}
 
-              {/* Slider Left / Right Navigation Arrows */}
               <button
                 onClick={prevSlide}
                 className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white text-white hover:text-slate-900 rounded-full w-11 h-11 flex items-center justify-center font-bold text-xl backdrop-blur-md transition shadow-lg"
@@ -317,26 +307,21 @@
                 ›
               </button>
 
-              {/* Overlaid Hero Content (Full Screen Landscape Layout) */}
               <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
                 <div className="max-w-2xl space-y-6">
                   
-                  {/* Active Slide Pill Badge */}
                   <div className="inline-flex items-center gap-2 rounded-full bg-teal-500/20 border border-teal-400/40 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-teal-300 backdrop-blur-md">
                     ● {HERO_SLIDES[currentSlide].badge}
                   </div>
 
-                  {/* Main Title */}
                   <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-md">
                     {HERO_SLIDES[currentSlide].heading}
                   </h1>
 
-                  {/* Subtitle */}
                   <p className="text-base sm:text-lg text-slate-200 leading-relaxed drop-shadow-sm max-w-xl">
                     {HERO_SLIDES[currentSlide].subtext}
                   </p>
 
-                  {/* Call-To-Action Buttons */}
                   <div className="flex flex-wrap gap-4 pt-2">
                     <a
                       href="#appointment"
@@ -354,7 +339,6 @@
                     </a>
                   </div>
 
-                  {/* Doctor Credential Badge Card (From Screenshot 2) */}
                   <div className="mt-8 pt-4">
                     <div className="inline-block rounded-2xl bg-white/95 backdrop-blur-md px-6 py-4 shadow-2xl border border-white/20 text-slate-900">
                       <p className="font-serif text-lg font-bold text-teal-900 leading-tight">
@@ -369,7 +353,6 @@
                 </div>
               </div>
 
-              {/* Bottom Carousel Indicator Dots */}
               <div className="absolute bottom-6 left-0 right-0 z-30 flex justify-center gap-2.5">
                 {HERO_SLIDES.map((_, idx) => (
                   <button
@@ -385,7 +368,7 @@
 
             </section>
 
-            {/* 4. TREATMENTS SECTION */}
+            {/* Treatments Section */}
             <section id="treatments" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24 border-b border-stone-200">
               <div className="mx-auto max-w-2xl text-center">
                 <span className="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-50 px-3 py-1 rounded-full border border-teal-200">
@@ -420,7 +403,7 @@
               </div>
             </section>
 
-            {/* 5. 10 PURE CLINICAL PICTURES SECTION (NO TEXT ON PHOTOS) */}
+            {/* 10 Pictures Clinical Section */}
             <section id="gallery" className="py-20 bg-stone-50 border-b border-stone-200">
               <div className="mx-auto max-w-7xl px-4 sm:px-6">
                 <div className="text-center max-w-2xl mx-auto mb-14">
@@ -460,7 +443,7 @@
               </div>
             </section>
 
-            {/* 6. PATIENT TESTIMONIALS & GOOGLE REVIEWS SECTION */}
+            {/* Patient Reviews Section */}
             <section id="testimonials" className="py-20 bg-white border-b border-stone-200">
               <div className="mx-auto max-w-7xl px-4 sm:px-6">
                 
@@ -522,31 +505,10 @@
                     </div>
                   ))}
                 </div>
-
-                <div className="mt-12 rounded-3xl bg-teal-50 border border-teal-200 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
-                  <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-2xl bg-white shadow-md flex items-center justify-center text-2xl font-bold text-teal-700 border border-teal-100">
-                      G
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-slate-900 text-base">Verified 4.9 Star Rating on Google</h4>
-                      <p className="text-xs text-slate-600 mt-0.5">Check patient testimonials on Google Maps or leave your treatment feedback.</p>
-                    </div>
-                  </div>
-                  <a
-                    href={config.googleReviewUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="shrink-0 rounded-full bg-teal-600 hover:bg-teal-700 text-white font-bold px-6 py-3 text-xs shadow-md transition"
-                  >
-                    Open Google Business Page ↗
-                  </a>
-                </div>
-
               </div>
             </section>
 
-            {/* 7. WEEKLY TIMINGS SECTION */}
+            {/* Timings Section */}
             <section id="timing" className="py-16 sm:py-20 bg-stone-50 border-b border-stone-200">
               <div className="max-w-5xl mx-auto px-4 sm:px-6">
                 <div className="text-center max-w-2xl mx-auto mb-12">
@@ -569,14 +531,10 @@
                     </div>
                   ))}
                 </div>
-
-                <div className="mt-8 rounded-2xl bg-teal-100/60 border border-teal-200 p-4 text-center text-xs text-teal-900">
-                  ⚠️ <strong>Emergency Toothache or Fracture?</strong> Call <a href={"tel:" + config.phone} className="underline font-bold">{config.phone}</a> immediately for priority chair reservation.
-                </div>
               </div>
             </section>
 
-            {/* 8. DOCTOR PROFILE */}
+            {/* Doctor Section */}
             <section id="doctor" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24 border-b border-stone-200">
               <div className="grid items-center gap-10 lg:grid-cols-2">
                 <div className="overflow-hidden rounded-[2rem] shadow-xl border-4 border-white bg-slate-100">
@@ -593,22 +551,11 @@
                   <h2 className="mt-2 font-serif text-3xl font-bold text-teal-900 sm:text-4xl">Meet {config.doctorName}</h2>
                   <p className="mt-2 font-semibold text-teal-700">{config.doctorDesignation}</p>
                   <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed">{config.doctorBio}</p>
-                  
-                  <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                    <div className="rounded-2xl border border-teal-100 bg-white p-5 shadow-xs">
-                      <p className="font-bold text-teal-900">Zero-Fear Dentistry</p>
-                      <p className="mt-1 text-xs text-slate-600">Gentle anesthesia protocols, step-by-step guidance, and complete anxiety relief.</p>
-                    </div>
-                    <div className="rounded-2xl border border-teal-100 bg-white p-5 shadow-xs">
-                      <p className="font-bold text-teal-900">Computer-Guided Accuracy</p>
-                      <p className="mt-1 text-xs text-slate-600">Digital smile simulation, rotary apex locators, and precise tooth restorations.</p>
-                    </div>
-                  </div>
                 </div>
               </div>
             </section>
 
-            {/* 9. ONLINE APPOINTMENT BOOKING ENGINE */}
+            {/* Appointment Form */}
             <section id="appointment" className="py-16 sm:py-24 bg-stone-50 border-b border-stone-200">
               <div className="max-w-3xl mx-auto px-4 sm:px-6">
                 <div className="rounded-3xl bg-white p-8 sm:p-12 shadow-xl border border-teal-100">
@@ -618,7 +565,7 @@
                     </span>
                     <h2 className="mt-2 font-serif text-3xl font-bold text-teal-900">Book Your Dental Visit</h2>
                     <p className="mt-2 text-xs sm:text-sm text-slate-500">
-                      Choose your preferred date, slot, and procedure. Our desk immediately locks your appointment with {config.doctorName}.
+                      Choose your preferred date, slot, and procedure.
                     </p>
                   </div>
 
@@ -633,9 +580,6 @@
                       <p className="text-sm font-bold">Appointment scheduled for {bookedNotice.name}!</p>
                       <p className="text-xs text-emerald-800 mt-1">
                         Procedure: <strong>{bookedNotice.service}</strong> on <strong>{bookedNotice.date} at {bookedNotice.time}</strong>.
-                      </p>
-                      <p className="text-[11px] text-emerald-700 mt-2">
-                        A confirmation SMS has been logged for contact: {bookedNotice.phone}.
                       </p>
                     </div>
                   )}
@@ -742,7 +686,7 @@
               </div>
             </section>
 
-            {/* 10. LOCATION & DIRECT GOOGLE MAPS ROUTE */}
+            {/* Direct Google Maps Navigation */}
             <section id="contact" className="border-t border-teal-100 bg-white py-16 lg:py-24">
               <div className="mx-auto max-w-7xl px-4 sm:px-6">
                 <div className="text-center max-w-2xl mx-auto mb-12">
@@ -817,7 +761,6 @@
             </section>
           </main>
 
-          {/* 11. FOOTER */}
           <footer className="bg-teal-900 py-10 text-center text-teal-100 text-xs border-t border-teal-800">
             <p className="font-bold text-base text-white font-serif">{config.clinicName}</p>
             <p className="mt-2 max-w-md mx-auto">{config.address}</p>
@@ -825,11 +768,38 @@
             <p className="mt-6 text-teal-400">© 2026 {config.clinicName}. All rights reserved.</p>
           </footer>
 
-          {/* 12. CLEAN LIGHTBOX MODAL */}
           {lightbox !== null && GALLERY_IMAGES[lightbox] && (
             <div 
               className="fixed inset-0 z-50 grid place-items-center bg-black/90 p-4 backdrop-blur-sm" 
               onClick={() => setLightbox(null)}
             >
               <div 
-                className="relative max-h-[90vh] w-full max-w-4xl overflow-
+                className="relative max-h-[90vh] w-full max-w-4xl overflow-hidden rounded-3xl bg-white shadow-2xl" 
+                onClick={(e) => e.stopPropagation()}
+              >
+                <img 
+                  src={GALLERY_IMAGES[lightbox].img} 
+                  alt={GALLERY_IMAGES[lightbox].title} 
+                  className="max-h-[75vh] w-full object-cover" 
+                />
+                <div className="p-4 bg-white flex justify-between items-center">
+                  <p className="font-serif text-lg font-bold text-teal-900">{GALLERY_IMAGES[lightbox].title}</p>
+                  <button 
+                    onClick={() => setLightbox(null)} 
+                    className="rounded-full bg-stone-100 hover:bg-stone-200 text-slate-700 w-8 h-8 flex items-center justify-center font-bold text-sm transition"
+                  >
+                    ✕
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
